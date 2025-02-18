@@ -17,12 +17,12 @@ async function determineBeneficiary(introducerId) {
     });
   
     if ((introducerCount + 1) % 2 === 1) {
-      // Odd count: Introducer is beneficiary
+     
       return introducer.id;
     } else {
-      // Even count: Use introducer's beneficiary, if available
+    
       if (!introducer.beneficiaryId) {
-        // If beneficiaryId is null, default to introducer
+    
         return introducer.id;
       }
       const introducerBeneficiary = await prisma.account.findUnique({
